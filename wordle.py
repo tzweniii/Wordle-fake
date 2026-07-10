@@ -19,16 +19,19 @@ todays_word = random.choice(words)
 list(todays_word)
 
 #start Play
+def start_game()
+    guess = input("Guess what the word is:")
 
-guess = input("Guess what the world is:")
+start_game()
 if len(guess) > 5:
         print("invalid word")
         print("please start again")
+        play_game()
 
 if len(guess) < 5:
         print("invalid word")
         print("please start again")
-
+        play_game()
 
 if len(guess) == 5:
 
@@ -37,7 +40,7 @@ if len(guess) == 5:
 
 
 #first letter
-
+def play_game():
         if str(guess[0]) in todays_word:
             print("the letter:", guess[0], 'is in todays word')
             if str(guess[0]) == str(todays_word[0]):
