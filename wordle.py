@@ -23,7 +23,7 @@ list(todays_word)
 def start_play():
     print("///////////////////////////")
     global guess
-    guess = input("Guess what the world is:").lower()
+    guess = input("Guess what the word is:").lower()
     print("///////////////////////////")
 
     list(guess)
