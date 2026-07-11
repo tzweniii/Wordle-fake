@@ -1,18 +1,7 @@
 import random
 
-words = [
-
-    "apple",
-    "brave",
-    "chair",
-    "dream",
-    "eagle",
-    "flame",
-    "grape",
-    "house",
-    "light",
-    "stone"
-]
+with open("spiele/wordle_words.json", "r") as list_words:
+    words = json.load(list_words)
 
 #get random word
 todays_word = random.choice(words)
@@ -30,24 +19,13 @@ def start_play():
     global guess_letters
     guess_letters = []
 
-    if len(guess) > 5:
-        print("invalid word")
-        print("please start again")
-        start_play()
-
-    if len(guess) < 5:
-        print("invalid word")
-        print("please start again")
-        start_play()
-
-    if any(number in guess for number in "0123456789"):
+    if len(guess) > 5 or len(guess) < 5 or any(number in guess for number in "0123456789"):
         print("invalid word")
         print("please start again")
         start_play()
 
     if len(guess) == 5:
         play_game()
-
  
 def play_game():
 
@@ -71,10 +49,10 @@ def play_game():
             print('///////////////////////////')
 
 tries = 0
-while tries < 3:
+while tries < 6:
     start_play() 
     tries += 1
-    if tries == 3:
+    if tries == 6:
         print("LOSEEEEEEEEEE")
 
 
